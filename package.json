@@ -1,0 +1,24 @@
+{
+  "name": "yarn-upgrade-fuzzy",
+  "version": "0.0.0",
+  "description": "Upgrade yarn dependencies to latest with fuzzy matching",
+  "keywords": [
+    "yarn",
+    "fuzzy match",
+    "minimatch",
+    "upgrade",
+    "cli",
+    "yargs"
+  ],
+  "main": "index.js",
+  "author": "Andrew Leedham <andrewleedham.me>",
+  "license": "MIT",
+  "bin": {
+    "yuf": "index.js"
+  },
+  "dependencies": {
+    "minimatch": "^3.0.4",
+    "read-pkg-up": "^7.0.1",
+    "yargs": "^15.3.1"
+  }
+}
