@@ -5,7 +5,7 @@
 [![npm package][npm-badge]][npm-link]
 [![license MIT][license-badge]][license-link]
 
-Look at your devDependencies and dependencies fields upgrading all that match the given minimatch pattern.
+Look at your devDependencies and dependencies fields upgrading all that match the given [matcher][matcher-url] pattern.
 
 ## Usage
 1. Install
@@ -30,3 +30,5 @@ yuf "jest*"
 
 [license-link]: ./LICENSE
 [license-badge]: https://flat.badgen.net/npm/license/yarn-upgrade-fuzzy
+
+[matcher-url]: https://github.com/sindresorhus/matcher

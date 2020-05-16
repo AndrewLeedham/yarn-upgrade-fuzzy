@@ -1,11 +1,11 @@
 {
   "name": "yarn-upgrade-fuzzy",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Upgrade yarn dependencies to latest with fuzzy matching",
   "keywords": [
     "yarn",
     "fuzzy match",
-    "minimatch",
+    "matcher",
     "upgrade",
     "cli",
     "yargs"
@@ -17,7 +17,7 @@
     "yuf": "index.js"
   },
   "dependencies": {
-    "minimatch": "^3.0.4",
+    "matcher": "^3.0.0",
     "read-pkg-up": "^7.0.1",
     "yargs": "^15.3.1"
   }

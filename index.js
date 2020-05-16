@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const readPkgUp = require("read-pkg-up");
-const minimatch = require("minimatch");
+const matcher = require("matcher");
 const { spawn } = require("child_process");
 
 const argv = require("yargs").usage(
@@ -21,10 +21,12 @@ const { packageJson } = readPkgUp.sync();
 
 if (packageJson) {
   const possible = [
-    ...Object.keys(packageJson.dependencies),
-    ...Object.keys(packageJson.devDependencies),
+    ...(packageJson.dependencies ? Object.keys(packageJson.dependencies) : []),
+    ...(packageJson.devDependencies
+      ? Object.keys(packageJson.devDependencies)
+      : []),
   ];
-  const found = possible.filter((pkg) => minimatch(pkg, pattern));
+  const found = possible.filter((pkg) => matcher.isMatch(pkg, pattern));
   if (found.length) {
     console.log(`Upgrading: ${found.join(", ")}`);
     spawn("yarn", ["upgrade", ...found.map((pkg) => `${pkg}@latest`)], {
