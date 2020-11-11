@@ -16,7 +16,16 @@ yarn global add yarn-upgrade-fuzzy
 2. Run in your project root:
 ```bash
 yuf "jest*"
-# Upgrading: jest, jest-circus 
+# Upgrading: jest, jest-circus to @latest
+```
+
+## Options
+### `--tag <tag>`
+The version tag to upgrade all the matching packages with. By default it will upgrade to latest, but you can specify one of the supported tags here: https://classic.yarnpkg.com/en/docs/cli/tag#what-are-tags-
+
+#### Usage
+```bash
+yuf "@xerox/*" --tag next
 ```
 
 ---

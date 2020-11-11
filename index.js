@@ -11,11 +11,16 @@ const argv = require("yargs").usage(
     yargs.positional("pattern", {
       describe: "the pattern to match against your dependencies",
       type: "string",
+    }).option('t', {
+      alias: 'tag',
+      default: 'latest',
+      description: 'The version tag to upgrade all the matching packages with.',
+      choices: ['latest', 'next', "stable", "beta", "canary", "dev"]
     });
   }
 ).argv;
 
-const { pattern } = argv;
+const { pattern, tag } = argv;
 
 const { packageJson } = readPkgUp.sync();
 
@@ -28,8 +33,8 @@ if (packageJson) {
   ];
   const found = possible.filter((pkg) => matcher.isMatch(pkg, pattern));
   if (found.length) {
-    console.log(`Upgrading: ${found.join(", ")}`);
-    spawn("yarn", ["upgrade", ...found.map((pkg) => `${pkg}@latest`)], {
+    console.log(`Upgrading: ${found.join(", ")} to @${tag}`);
+    spawn("yarn", ["upgrade", ...found.map((pkg) => `${pkg}@${tag}`)], {
       stdio: ["inherit", "inherit", "inherit"],
     });
   } else {
