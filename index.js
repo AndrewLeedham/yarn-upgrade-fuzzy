@@ -11,11 +11,11 @@ const argv = require("yargs").usage(
     yargs.positional("pattern", {
       describe: "the pattern to match against your dependencies",
       type: "string",
-    }).option('t', {
-      alias: 'tag',
+    }).option('tag', {
+      type: 'string',
+      alias: 't',
       default: 'latest',
-      description: 'The version tag to upgrade all the matching packages with.',
-      choices: ['latest', 'next', "stable", "beta", "canary", "dev"]
+      description: 'The version tag to upgrade all the matching packages with. For example "latest", "next", "stable", "beta", "canary", "dev"',
     });
   }
 ).argv;
