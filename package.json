@@ -1,6 +1,6 @@
 {
   "name": "yarn-upgrade-fuzzy",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Upgrade yarn dependencies to latest with fuzzy matching",
   "keywords": [
     "yarn",
